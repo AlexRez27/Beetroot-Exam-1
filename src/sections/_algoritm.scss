@@ -1,0 +1,65 @@
+.algoritm {
+    background-color: #333333;
+    &__container {
+        display: flex;
+        max-width: $ContainerWidth;
+        margin: 0 auto;
+        text-align: center;
+        height: 100px;
+        min-height: 335px;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        @supports (justify-content: space-evenly) {
+            justify-content: space-evenly;
+        }
+        @include _768 {
+            flex-direction: column;
+        }
+    }
+
+    &__connector {
+        @include connector(17%);
+        &-second {
+            @include connector(48%);
+        }
+    }
+    &__item {
+        z-index: 1;
+        background-color: #333333;
+    }
+    // &__item {
+    //     &-search {
+    //         &:before {
+    //             @include connector(21%);
+    //         }
+    //     }
+    //     &-check {
+    //         &:before {
+    //             @include connector(52%);
+    //         }
+    //     }
+    // }
+    &__svgbox {
+        @include svg-container(22%, 4%);
+    }
+    &__icon {
+        width: 57px;
+        height: 57px;
+        @include svg(100%);
+        @include _768 {
+            @include svg(100%);
+        }
+    }
+    &__sign {
+        color: #e8e8e8;
+        font-family: $SecondFont;
+        font-weight: 400;
+        font-size: rem-calc($MainFontSize + 20px);
+        @include _768 {
+            margin: 0%;
+            margin-top: 5px;
+            font-size: rem-calc($MainFontSize + 10px);
+        }
+    }
+}

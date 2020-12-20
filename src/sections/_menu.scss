@@ -1,0 +1,107 @@
+.menu {
+    background-color: $ThirdColor;
+    position: relative;
+    @include _768 {
+        order: -1;
+    }
+    &__container {
+        max-width: $ContainerWidth;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        min-height: 80px;
+        color: $MainColor;
+        @include _768 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+        }
+    }
+    &__logo {
+        margin: 0;
+        // width: 50%;
+        display: inline;
+        font-family: $MainFont;
+        font-size: rem-calc(24px);
+        @include _768 {
+            padding-top: 25px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $MainColor;
+    }
+    &__list {
+        width: 100%;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        font-family: $SecondFont;
+        font-size: $SecondFontSize;
+        padding: 0;
+        @include _768 {
+            display: none;
+            background: #fffffffa;
+            margin: 0;
+            margin-top: 10px;
+            padding-bottom: 20px;
+        }
+    }
+    &__item {
+        & + & {
+            margin-left: 42px;
+            @include _768 {
+                margin-top: 10px;
+            }
+        }
+        @include _768 {
+            margin: 0;
+            margin-left: 0 !important;
+        }
+    }
+
+    &__toggle {
+        display: none;
+        @include _768 {
+            display: block;
+            width: 0;
+            margin-right: 3%;
+        }
+        &:before {
+            color: $MainColor;
+            @include _768 {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f0c9";
+                display: inline-block;
+                text-align: center;
+                padding: 0;
+                z-index: 1;
+            }
+        }
+    }
+    &__toggle {
+        cursor: pointer;
+        &:checked + .menu__list {
+            @include _768 {
+                display: block;
+                background: $MenuColor;
+                text-align: center;
+            }
+        }
+        &:checked:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f00d";
+        }
+    }
+}

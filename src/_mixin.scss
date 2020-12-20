@@ -1,0 +1,57 @@
+@mixin _375 {
+    @media screen and (max-width: 375px) {
+        @content;
+    }
+}
+@mixin _768 {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+@mixin _992 {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+@function rem-calc($font-size: 0) {
+    $remSize: $font-size / $MainFontSize;
+    @return #{$remSize}rem;
+}
+@function calc-percent($main-size, $calc-size) {
+    $result: calc(((#{$calc-size} / #{$main-size}) * 100) * 1%);
+    @return #{$result};
+}
+@function line-height-em($base-line-height, $font-size) {
+    $result: $base-line-height * 1px / $font-size;
+    @return #{$result}em;
+}
+@mixin connector($left) {
+    width: 35%;
+    height: 200px;
+    position: absolute;
+    top: 8%;
+    left: $left;
+    border: 1px dotted #717171;
+    border-bottom: none;
+    border-radius: 500em 500em 0 0;
+    @include _768 {
+        display: none;
+    }
+}
+
+@mixin svg-container($PaddingBottom, $MarginTop) {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding: 0;
+    padding-bottom: $PaddingBottom;
+    margin-top: $MarginTop;
+}
+
+@mixin svg($Height: 100%) {
+    position: absolute;
+    height: $Height;
+    width: 100%;
+    left: 0;
+    top: 0;
+}

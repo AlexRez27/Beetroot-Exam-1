@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+.front {
+    background-image: url(images/front-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px; // Чтоб IE не игнорил центроку по вертикали
+    min-height: 740px;
+    color: $MainColor;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    &__box {
+        // width: calc-percent(1770, 650);
+        width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 25px;
+    }
+    &__title {
+        font-size: rem-calc(48px);
+        font-family: $MainFont;
+        font-weight: 700;
+        margin-bottom: 19px;
+    }
+    &__descr {
+        font-family: $MainFont;
+        font-weight: 100;
+        font-size: rem-calc(22px);
+        letter-spacing: 0.18em;
+        margin-top: 0;
+        margin-bottom: 54px;
+    }
+    &__form {
+        width: 100%;
+    }
+    &__inputbox {
+        width: 100%;
+        height: 60px;
+        background-color: #fff;
+        margin-bottom: 120px;
+        border-bottom: 3px solid #ffffff;
+        text-align: left;
+    }
+    &__search {
+        width: 74%;
+        margin: 0%;
+        text-align: center;
+        height: 105%;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        color: #999999;
+        font-size: 1.25rem;
+        outline: none;
+        border: none;
+        box-sizing: border-box;
+        padding: 0;
+        // @include _768 {
+        //     width: 75%;
+        // }
+        &::placeholder {
+            font-size: $SecondFontSize;
+            @include _768 {
+                font-size: rem-calc(12px);
+            }
+        }
+        &:focus {
+            border-left: 6px solid green;
+            background-color: darken($color: $MainColor, $amount: 7);
+        }
+        &:invalid {
+            border-left: 6px solid red;
+        }
+        &:valid {
+            border-left: 6px solid green;
+        }
+    }
+    &__btn {
+        width: 25%;
+        height: 97%;
+        padding-left: 0;
+        padding-right: 0;
+        background-color: $ThirdColor;
+        outline: none;
+        border: none;
+        margin: 0;
+
+        cursor: pointer;
+        box-sizing: border-box;
+        &:active {
+            background-color: darken($color: $ThirdColor, $amount: 16.5);
+        }
+        @include _768 {
+            border-top: none;
+            padding-top: 10px;
+            width: 24.3%;
+        }
+    }
+    &__scroll {
+        font-family: $MainFont;
+        font-size: $SecondFontSize;
+        text-decoration: none;
+        color: $MainColor;
+        letter-spacing: 0.2em;
+
+        @include _768 {
+            display: none;
+        }
+        &:after {
+            content: ">";
+            display: inline-block;
+            transform: rotate(90deg);
+        }
+    }
+    &__span {
+        display: block;
+    }
+}
+.button {
+    position: relative;
+    cursor: pointer;
+    &__name {
+        font-family: $SecondFont;
+        font-size: $SecondFontSize;
+        color: $MainColor;
+        border-top: none;
+
+        @include _768 {
+            // font-size: rem-calc(12px);
+            display: none;
+        }
+    }
+    &__svg {
+        height: 21px;
+        width: 22px;
+        position: absolute;
+        top: 30%;
+        left: 75%;
+        cursor: pointer;
+        @include _768 {
+            left: 40%;
+            transform: scale(1.5);
+        }
+    }
+}

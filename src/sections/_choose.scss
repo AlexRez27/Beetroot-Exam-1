@@ -1,0 +1,123 @@
+.choose {
+    background-image: url(images/choose-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+    min-height: 685px;
+    &__container {
+        max-width: $ContainerWidth;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        height: 100%;
+        color: $MainColor;
+        @include _768 {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__descr {
+        @include _992 {
+            text-align: center;
+        }
+    }
+    &__title {
+        font-family: $SecondFont;
+        font-size: rem-calc(36px);
+        margin-bottom: 36px;
+        font-weight: 400;
+        @include _768 {
+            margin-bottom: 18px;
+        }
+    }
+    &__text {
+        width: 82.4%;
+        font-family: $MainFont;
+        font-weight: 400;
+        font-size: rem-calc($MainFontSize);
+        letter-spacing: 0.1em;
+        line-height: $MainLineHeight;
+        margin-top: 0;
+        @include _992 {
+            width: 100%;
+        }
+        @include _768 {
+            font-size: rem-calc($MainFontSize - 5px);
+        }
+    }
+    // &__btn,
+
+    &__pictures {
+        @include _768 {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__img {
+        width: calc-percent(475, 350);
+        height: auto;
+        @include _992 {
+            width: 100%;
+        }
+        @include _768 {
+            width: 80%;
+            margin-top: 20px;
+        }
+        @include _375 {
+            width: 70%;
+        }
+        &-second {
+            text-align: right;
+            padding-left: 26%;
+            @include _992 {
+                padding-left: 0;
+            }
+        }
+    }
+}
+.btn {
+    margin-top: 29px;
+    height: 60px;
+    width: 225px;
+    text-align: center;
+    color: $MainColor;
+    background-color: $ThirdColor;
+    font-family: $SecondFont;
+    font-weight: 400;
+    font-size: rem-calc($MainFontSize);
+    position: relative;
+    z-index: 1;
+    outline: none;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:active {
+        background-color: darken($color: $ThirdColor, $amount: 6.5);
+        border: 1px solid #3359fd;
+        &:before {
+            background-color: darken($color: #496bfe, $amount: 6.5);
+        }
+    }
+    @include _768 {
+        margin-top: 14px;
+    }
+    &:before {
+        content: "";
+        background-color: #496bfe;
+        display: block;
+        @supports (clip-path: polygon(0% 100%, 0% 0%, 62% 0%, 100% 100%)) {
+            clip-path: polygon(0% 100%, 0% 0%, 62% 0%, 100% 100%);
+            width: 109px;
+            height: 100%;
+        }
+
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+}
